@@ -8,6 +8,15 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="10.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WhatsappIntegration.Application\WhatsappIntegration.Application.csproj" />
+    <ProjectReference Include="..\WhatsappIntegration.Common\WhatsappIntegration.Common.csproj" />
+    <ProjectReference Include="..\WhatsappIntegration.External\WhatsappIntegration.External.csproj" />
   </ItemGroup>
 
 </Project>

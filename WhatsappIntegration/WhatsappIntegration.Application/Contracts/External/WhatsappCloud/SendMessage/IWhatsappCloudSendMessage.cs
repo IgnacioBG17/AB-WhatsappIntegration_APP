@@ -1,4 +1,4 @@
-﻿namespace WhatsappIntegration.Api.Services.WhatsappCloud.SendMessage
+﻿namespace WhatsappIntegration.Application.Contracts.WhatsappCloud.SendMessage
 {
     public interface IWhatsappCloudSendMessage
     {
