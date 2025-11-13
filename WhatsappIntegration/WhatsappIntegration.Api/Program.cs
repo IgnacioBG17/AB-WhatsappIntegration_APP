@@ -1,5 +1,10 @@
-using WhatsappIntegration.Api.Services.WhatsappCloud.SendMessage;
-using WhatsappIntegration.Api.Util;
+using Microsoft.OpenApi;
+using WhatsappIntegration.Api;
+using WhatsappIntegration.Application;
+using WhatsappIntegration.Application.Contracts.WhatsappCloud.SendMessage;
+using WhatsappIntegration.Common;
+using WhatsappIntegration.External;
+using WhatsappIntegration.External.WhatsappCloud.SendMessage;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,12 +12,22 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddSingleton<IWhatsappCloudSendMessage, WhatsappCloudSendMessage>();
-builder.Services.AddSingleton<IUtil, Util>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient();
+builder.Services.AddHttpClient<IWhatsappCloudSendMessage, WhatsappCloudSendMessage>();
+
+builder.Services
+    .AddWebApi()
+    .AddCommon()
+    .AddApplication()
+    .AddExternal(builder.Configuration);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

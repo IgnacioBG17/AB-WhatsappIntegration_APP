@@ -1,4 +1,4 @@
-﻿namespace WhatsappIntegration.Api.Models.WhatsappCloud
+﻿namespace WhatsappIntegration.Domain.Models.WhatsappCloud
 {
     public class WhatsAppCloudModel
     {
